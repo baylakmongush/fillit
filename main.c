@@ -59,6 +59,7 @@ void				ft_all_overl(int *coord_of_sharp, int min_size, int nbrs_tetra)
 		i++;
 		printf(" ");
 	}
+	ft_add_to_fin_list(head, coord_of_sharp, nbrs_tetra);
 }
 
 int				main(int ac, char **argv)
@@ -67,7 +68,7 @@ int				main(int ac, char **argv)
 	int			count_sharp;
 	char		*tetra;
 	int			*coord_of_sharp;
-	t_dbl_list	*head;
+	t_flist	*head;
 	int			min_size;
 	int i;
 

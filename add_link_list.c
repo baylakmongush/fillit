@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dbl_link_list.c                                 :+:      :+:    :+:   */
+/*   add_link_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 16:28:31 by npetrell          #+#    #+#             */
-/*   Updated: 2019/10/25 22:19:31 by npetrell         ###   ########.fr       */
+/*   Created: 2019/10/28 17:37:27 by npetrell          #+#    #+#             */
+/*   Updated: 2019/10/28 19:00:09 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void         add_dbl_link_list(t_dbl_list **head, char name_tetra)
+void         create_flist(t_flist **head, char name_tetra)
 {
-    t_dbl_list	*new_node;
+    t_flist	*new_node;
+	t_flist	*tmp;
 
-    new_node = (t_dbl_list*)malloc(sizeof(t_dbl_list));
+    new_node = (t_flist*)malloc(sizeof(t_flist));
     new_node->name = name_tetra;
-    new_node->next = *head;
-    new_node->prev = NULL;
-    if (*head != NULL)
-        (*head)->prev = new_node;
-    *head = new_node;
+	new_node->next = *head;
+	tmp = *head;
+	*head = new_node;
+	free(tmp);
 }
+
 
 int				*ft_move_zero_position_all(int *coord, int len)
 {
@@ -54,8 +55,8 @@ int				*ft_move_zero_position_all(int *coord, int len)
 	return (coord);
 }
 
-void			ft_create_dbl_list(int count_sharp, int *coord_of_sharp,
- t_dbl_list **head)
+void			ft_create_flist(int count_sharp, int *coord_of_sharp,
+ t_flist **head)
 {
 	int	    	count_tetra;
 	int	    	i;
@@ -67,7 +68,7 @@ void			ft_create_dbl_list(int count_sharp, int *coord_of_sharp,
 	while (count_tetra-- > 0 && head)
 	{
 		i = 0;
-		add_dbl_link_list(head, name_tetra);
+		create_flist(head, name_tetra);
 		while (i < 8)
 		{
 			(*head)->crd_sharp[i]= *coord_of_sharp;
