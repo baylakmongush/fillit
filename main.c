@@ -6,7 +6,7 @@
 /*   By: rkina <rkina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 21:52:44 by rkina             #+#    #+#             */
-/*   Updated: 2019/10/28 18:51:42 by rkina            ###   ########.fr       */
+/*   Updated: 2019/10/30 21:05:50 by rkina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ int					ft_combinations(int nbrs_tetra)
 	return (comb);
 }
 
-void				ft_all_overl(int *coord_of_sharp, int min_size, int nbrs_tetra)
-{
+void				ft_all_overl(t_flist **head, int *coord_of_sharp, int min_size, int nbrs_tetra)
+{	
 	int start;
 
-	int i;
 	start = 2;
 	while (ft_overlay(coord_of_sharp, start))
 	{
@@ -51,14 +50,7 @@ void				ft_all_overl(int *coord_of_sharp, int min_size, int nbrs_tetra)
 			break ;
 		}
 	}
-	i = 0;
-	printf("After move y ");
-	while (i < nbrs_tetra * 8)
-	{
-		printf("%d", coord_of_sharp[i]);
-		i++;
-		printf(" ");
-	}
+	nbrs_tetra--;
 	ft_add_to_fin_list(head, coord_of_sharp, nbrs_tetra);
 }
 
@@ -70,10 +62,9 @@ int				main(int ac, char **argv)
 	int			*coord_of_sharp;
 	t_flist	*head;
 	int			min_size;
-	int i;
 
 	head = NULL;
-	if (ac > 2)
+	if (ac != 2)
 		ft_error_output();
 	if (ac == 2)
 	{
@@ -83,18 +74,11 @@ int				main(int ac, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		tetra = ft_valid_tetra(fd);
 		close(fd);
-		coord_of_sharp = ft_change_to_coord(tetra, count_sharp);
-		ft_create_dbl_list(count_sharp, coord_of_sharp, &head);
+		coord_of_sharp = ft_change_to_coord(tetra, count_sharp);	
+		ft_create_flist(count_sharp, coord_of_sharp, &head);
 		min_size = ft_count_min_s(count_sharp / 4);
 		coord_of_sharp = ft_move_zero_position_all(coord_of_sharp, count_sharp);
-		i = 0;
-		printf("\nBefore swap\n");
-		while (i < count_sharp * 2)
-		{
-			printf("%d", coord_of_sharp[i]);
-			i++;
-			printf(" ");
-		}
+		/*
 		ft_swap_tet(coord_of_sharp, 2, 3);
 		i = 0;
 		printf("\nAfter swap\n");
@@ -104,7 +88,8 @@ int				main(int ac, char **argv)
 			i++;
 			printf(" ");
 		}
-		//ft_all_overl(coord_of_sharp, min_size, count_sharp / 4);
+		*/
+		ft_all_overl(&head, coord_of_sharp, min_size, count_sharp / 4);
 		//head->crd_sharp = ft_move(head->crd_sharp, 'x')
 	}
 }

@@ -35,6 +35,7 @@ int		*ft_move_zero_position(int *coord, int nbr_tet);
 int		*ft_move_zero_position_all(int *coord, int len);
 void    ft_create_map(t_flist  *head, int size_map);
 void    ft_add_to_fin_list(t_flist **head, int *coord_of_sharp, int nbrs_tetra);
+int	ft_check_over_map(int *crds, int nbrs_tet, int min_size);
 int     *ft_swap_tet(int *coord, int a, int b);
 
 #endif

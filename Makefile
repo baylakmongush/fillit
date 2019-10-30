@@ -13,7 +13,7 @@
 NAME = fillit
 
 SRCS = ./ft_valid_input.c ./ft_valid_corr_tet.c ./main.c \
- ./ft_dbl_link_list.c ./ft_count_min_s.c ./ft_change_to_coord.c \
+ ./add_link_list.c ./ft_count_min_s.c ./ft_change_to_coord.c \
 ./ft_move.c  ./ft_create_map.c ./ft_check_over.c
 
 

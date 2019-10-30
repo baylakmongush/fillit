@@ -23,7 +23,7 @@ void         create_flist(t_flist **head, char name_tetra)
 	new_node->next = *head;
 	tmp = *head;
 	*head = new_node;
-	free(tmp);
+//	free(tmp);
 }
 
 

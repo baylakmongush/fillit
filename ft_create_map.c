@@ -65,9 +65,14 @@ void       ft_add_to_fin_list(t_flist **head, int *coord_of_sharp, int nbrs_tetr
     int     j;
     int     remainder;
     t_flist *tmp;
-    int     *rmb[8];
     int     count;
 
+    i = 0;
+    while (i < nbrs_tetra * 8)
+    {
+        printf("%d", coord_of_sharp[i]);
+        i++;
+    }
     tmp = *head;
     i = 0;
     while (*head)
@@ -103,5 +108,5 @@ void       ft_add_to_fin_list(t_flist **head, int *coord_of_sharp, int nbrs_tetr
         }
         (*head) = (*head)->next;
     }
-    ft_create_map(tmp, 3);
+    ft_create_map(tmp, 4); // size_map второй аргумент
 }
