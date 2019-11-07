@@ -6,17 +6,17 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 16:53:57 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/07 15:55:15 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/07 17:54:25 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void		ft_print_map(int size_map, char map[size_map][size_map])
+void			nft_print_map(int size_map, char map[size_map][size_map])
 {
-	int		x;
-	int		y;
+	int			x;
+	int			y;
 
 	x = -1;
 	while (++x < size_map)
@@ -28,12 +28,12 @@ void		ft_print_map(int size_map, char map[size_map][size_map])
 	}
 }
 
-void		ft_create_map(t_flist  *head, int size_map)
+void			ft_create_map(t_flist *head, int size_map)
 {
-	char	map[size_map][size_map];
-	int		i;
-	int		x;
-	int		y;
+	char		map[size_map][size_map];
+	int			i;
+	int			x;
+	int			y;
 
 	x = -1;
 	while (++x < size_map)
@@ -56,10 +56,10 @@ void		ft_create_map(t_flist  *head, int size_map)
 	ft_print_map(size_map, map);
 }
 
-int			ft_find_max_size(int *coord_of_sharp, int nbrs_tetra)
+int				ft_find_max_size(int *coord_of_sharp, int nbrs_tetra)
 {
-	int 	i;
-	int		max_size;
+	int			i;
+	int			max_size;
 
 	i = 1;
 	max_size = coord_of_sharp[0];
@@ -72,13 +72,13 @@ int			ft_find_max_size(int *coord_of_sharp, int nbrs_tetra)
 	return (max_size);
 }
 
-int			ft_find_position(t_flist **head, int *tmp_int)
+int				ft_find_position(t_flist **head, int *tmp_int)
 {
-	int		i;
-	int		k;
-	int		count;
-	int		j;
-	int		pos;
+	int			i;
+	int			k;
+	int			count;
+	int			j;
+	int			pos;
 
 	i = 0;
 	count = 0;
@@ -101,13 +101,13 @@ int			ft_find_position(t_flist **head, int *tmp_int)
 	return (pos);
 }
 
-void		ft_add_to_fin_list(t_flist **head, int *coord_of_sharp, int nbrs_tetra)
+void			ft_add_to_fin_list(t_flist **head,
+int *coord_of_sharp, int nbrs_tetra)
 {
-	t_flist	*tmp;
-	int		*tmp_int;
-	int i;
-	int pos;
-	int max_size;
+	t_flist		*tmp;
+	int			*tmp_int;
+	int			i;
+	int			pos;
 
 	i = -1;
 	tmp_int = (int*)malloc(sizeof(int) * (nbrs_tetra * 8));
@@ -126,7 +126,7 @@ void		ft_add_to_fin_list(t_flist **head, int *coord_of_sharp, int nbrs_tetra)
 		}
 		(*head) = (*head)->next;
 	}
-	max_size = ft_find_max_size(coord_of_sharp, nbrs_tetra);
+	pos = ft_find_max_size(coord_of_sharp, nbrs_tetra);
 	free(tmp_int);
-	ft_create_map(tmp, max_size + 1);
+	ft_create_map(tmp, pos + 1);
 }

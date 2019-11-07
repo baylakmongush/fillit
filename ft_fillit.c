@@ -6,14 +6,14 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 23:17:08 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/07 15:38:35 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/07 17:58:26 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-int	ft_answer(int *coords, int size, int start, int len)
+int		ft_answer(int *coords, int size, int start, int len)
 {
 	while (!(ft_check_over_map(coords, start, size, 'y')))
 	{
@@ -46,11 +46,12 @@ int		ft_solve(int *coords, int start, int size, int len)
 	return (0);
 }
 
-void	ft_fillit(t_flist **head, int *coord_of_sharp, int min_size, int nbrs_tetra)
+void	ft_fillit(t_flist **head, int *coord_of_sharp,
+int min_size, int nbrs_tetra)
 {
 	int start;
 
-	start  = 1;
+	start = 1;
 	ft_solve(coord_of_sharp, start, min_size, nbrs_tetra);
 	ft_add_to_fin_list(head, coord_of_sharp, nbrs_tetra);
 }
