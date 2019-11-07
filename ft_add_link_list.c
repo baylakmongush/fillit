@@ -6,22 +6,42 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:37:27 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/07 14:40:01 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/07 17:44:15 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
+void			reverse(t_flist **head)
+{
+	t_flist		*prev;
+	t_flist		*current;
+	t_flist		*next;
+
+	prev = NULL;
+	current = *head;
+	next = NULL;
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
+}
+
 void			create_flist(t_flist **head, char name_tetra)
 {
 	t_flist		*new_node;
-	t_flist		*tmp;
 
 	new_node = (t_flist*)malloc(sizeof(t_flist));
 	new_node->name = name_tetra;
 	new_node->next = *head;
-	tmp = *head;
+	new_node->prev = NULL;
+	if (*head != NULL)
+		(*head)->prev = new_node;
 	*head = new_node;
 }
 
@@ -77,4 +97,5 @@ void			ft_create_flist(int count_sharp, int *coord_of_sharp,
 		}
 		name_tetra++;
 	}
+	reverse(head);
 }
