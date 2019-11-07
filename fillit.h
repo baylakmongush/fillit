@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 15:59:03 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/07 17:56:35 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/07 19:53:27 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,6 @@ int *coord_of_sharp, int nbrs_tetra);
 int							ft_check_over_map(int *crds, int nbrs_tet,
 int min_size, char x_y);
 int							*ft_move_zero_position_x(int *coord, int nbr_tet);
+void         				ft_del_list(t_flist **head);
+void						dltnode(t_flist **head, t_flist *del);
 #endif
