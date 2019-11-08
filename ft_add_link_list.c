@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:37:27 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/07 19:49:21 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/08 15:23:53 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ void			reverse(t_flist **head)
 	*head = prev;
 }
 
-void			create_flist(t_flist **head, char name_tetra)
+t_flist			*create_flist(t_flist *head, char name_tetra)
 {
 	t_flist		*new_node;
 
 	new_node = (t_flist*)malloc(sizeof(t_flist));
 	new_node->name = name_tetra;
-	new_node->next = *head;
+	new_node->next = head;
 	new_node->prev = NULL;
-	if (*head != NULL)
-		(*head)->prev = new_node;
-	*head = new_node;
+	if (head != NULL)
+		head->prev = new_node;
+	head = new_node;
+	return (head);
 }
 
 int				*ft_move_zero_position_all(int *coord, int len)
@@ -88,7 +89,7 @@ void			ft_create_flist(int count_sharp, int *coord_of_sharp,
 	while (count_tetra-- > 0 && head)
 	{
 		i = 0;
-		create_flist(head, name_tetra);
+		*head = create_flist(*head, name_tetra);
 		while (i < 8)
 		{
 			(*head)->crd_sharp[i] = coord_of_sharp[j];

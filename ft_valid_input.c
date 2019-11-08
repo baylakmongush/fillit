@@ -6,11 +6,12 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 17:05:56 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/07 19:49:19 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/08 16:49:23 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 int		ft_valid_input(const int fd)
 {
@@ -33,8 +34,11 @@ int		ft_valid_input(const int fd)
 				line[j] == '#' ? i++ : i;
 			}
 		}
-	//	(count % 5 == 0) && line[j] != '\0' ? ft_error_output() : line[j]; // there is a mistake
-		free(line);
+		if (line[count] == '\0')
+			printf("4");
+	//	count % 5 == 0 && line[count] != '\n' ? ft_error_output() : line[j];
+	//	free(line);
+		printf("count = %d", count);
 	}
 	i % 4 != 0 ? ft_error_output() : i;
 	count + 1 > 130 ? ft_error_output() : count;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rkina <rkina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 15:59:03 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/07 19:53:27 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/07 20:12:45 by rkina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct				s_flist {
 int							ft_valid_input(const int fd);
 char						*ft_valid_tetra(const int fd);
 void						ft_valid_corr_tet(char *str);
-void						create_flist(t_flist **head, char name_tetra);
+t_flist						*create_flist(t_flist *head, char name_tetra);
 void						ft_create_flist(int count_sharp,
 int *coord_of_sharp, t_flist **head);
 int							ft_count_min_s(int tets);

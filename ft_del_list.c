@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 18:36:30 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/07 19:53:37 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/08 15:35:59 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ void		dltnode(t_flist **head, t_flist *del)
 
 void		ft_del_list(t_flist **head)
 {
-	while (*head)
+/*	while (*head)
 	{
-		dltnode(head, (*head)->next);
+		dltnode(head, *head);
 		*head = (*head)->next;
-	}
+	}*/
+	dltnode(head, *head);
+	dltnode(head, (*head)->next);
+	dltnode(head, (*head)->next);
 }
