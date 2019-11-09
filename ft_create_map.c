@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 16:53:57 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/09 00:05:05 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/09 13:41:35 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,5 @@ int *coord_of_sharp, int nbrs_tetra)
 	pos = ft_find_max_size(coord_of_sharp, nbrs_tetra);
 	free(tmp_int);
 	ft_create_map(tmp, pos + 1);
-//	ft_del_list(&tmp);
-	dltnode(&tmp, tmp);
-	dltnode(&tmp, tmp->prev);
-//	dltnode(&tmp, tmp->next);
+	ft_clear_list(&tmp);
 }

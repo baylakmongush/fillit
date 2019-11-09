@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkina <rkina@student.42.fr>                +#+  +:+       +#+        */
+/*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 15:59:03 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/07 20:12:45 by rkina            ###   ########.fr       */
+/*   Updated: 2019/11/09 13:41:31 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ int *coord_of_sharp, int nbrs_tetra);
 int							ft_check_over_map(int *crds, int nbrs_tet,
 int min_size, char x_y);
 int							*ft_move_zero_position_x(int *coord, int nbr_tet);
-void         				ft_del_list(t_flist **head);
-void						dltnode(t_flist **head, t_flist *del);
+void						ft_clear_list(t_flist **head);
 #endif
