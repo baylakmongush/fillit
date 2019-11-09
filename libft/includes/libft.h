@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 13:50:13 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/09 00:04:54 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/09 16:01:11 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					get_next_line(const int fd, char **line);
-void				ft_error_output(void);
+void				ft_err(void);
 int					ft_sqrt(int nb);
 int					ft_iterative_factorial(int nb);
-
+int					*ft_intstrcopy(int *dst, int *src, int n);
 #endif

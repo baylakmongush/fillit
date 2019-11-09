@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_valid_corr_tet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkina <rkina@student.42.fr>                +#+  +:+       +#+        */
+/*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 21:56:11 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/07 20:44:43 by rkina            ###   ########.fr       */
+/*   Updated: 2019/11/09 16:00:29 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int			ft_count_neigh(int i, char *s)
 
 void		ft_valid_corr_tet(char *str)
 {
-	int 	i;
-	int 	sum_nghrs;
+	int		i;
+	int		sum_nghrs;
 
 	i = 0;
 	sum_nghrs = 0;
@@ -43,7 +43,7 @@ void		ft_valid_corr_tet(char *str)
 	}
 	if (sum_nghrs == 6 || sum_nghrs == 8)
 		return ;
-	ft_error_output();
+	ft_err();
 }
 
 char		*ft_valid_tetra(const int fd)

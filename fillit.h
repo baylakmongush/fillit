@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 15:59:03 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/09 13:41:31 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/09 14:07:17 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int							ft_overlay(int *coords, int nbr_tet);
 void						ft_fillit(t_flist **head, int *coord_of_sharp,
 int min_size, int nbrs_tetra);
 int							*ft_move_zero_position(int *coord, int nbr_tet);
-int							*ft_move_zero_position_all(int *coord, int len);
+int							*zero_position_all(int *coord, int len);
 void						ft_create_map(t_flist *head, int size_map);
 void						ft_add_to_fin_list(t_flist **head,
 int *coord_of_sharp, int nbrs_tetra);

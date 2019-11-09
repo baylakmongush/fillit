@@ -6,12 +6,11 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 16:53:57 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/09 13:41:35 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/09 14:12:34 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 void			ft_print_map(int size_map, char map[size_map][size_map])
 {
@@ -109,11 +108,9 @@ int *coord_of_sharp, int nbrs_tetra)
 	int			i;
 	int			pos;
 
-	i = -1;
 	tmp_int = (int*)malloc(sizeof(int) * (nbrs_tetra * 8));
-	while (++i < nbrs_tetra * 8)
-		tmp_int[i] = coord_of_sharp[i];
-	tmp_int = ft_move_zero_position_all(tmp_int, nbrs_tetra * 8);
+	tmp_int = ft_intstrcopy(tmp_int, coord_of_sharp, nbrs_tetra * 8);
+	tmp_int = zero_position_all(tmp_int, nbrs_tetra * 8);
 	tmp = *head;
 	while (*head)
 	{

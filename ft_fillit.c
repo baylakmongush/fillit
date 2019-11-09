@@ -6,7 +6,7 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 23:17:08 by rkina             #+#    #+#             */
-/*   Updated: 2019/11/08 15:32:07 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/09 14:08:20 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_solve(int *coords, int start, int size, int len)
 {
 	while (!(ft_answer(coords, size, start, len)))
 	{
-		ft_move_zero_position_all(coords, len);
+		zero_position_all(coords, len);
 		size++;
 	}
 	return (0);

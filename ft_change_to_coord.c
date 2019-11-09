@@ -3,22 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_change_to_coord.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkina <rkina@student.42.fr>                +#+  +:+       +#+        */
+/*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 21:31:26 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/07 20:20:07 by rkina            ###   ########.fr       */
+/*   Updated: 2019/11/09 16:13:32 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 int				*ft_change_to_coord(char *tetra, int count_sharp)
 {
 	int			*coord_of_sharp;
 	int			i;
 	int			j;
-
 
 	coord_of_sharp = malloc(sizeof(int) * (count_sharp * 2));
 	i = 0;

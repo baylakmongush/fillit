@@ -6,12 +6,11 @@
 /*   By: npetrell <npetrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:37:27 by npetrell          #+#    #+#             */
-/*   Updated: 2019/11/09 00:04:52 by npetrell         ###   ########.fr       */
+/*   Updated: 2019/11/09 13:57:14 by npetrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 void			reverse(t_flist **head)
 {
@@ -46,7 +45,7 @@ t_flist			*create_flist(t_flist *head, char name_tetra)
 	return (head);
 }
 
-int				*ft_move_zero_position_all(int *coord, int len)
+int				*zero_position_all(int *coord, int len)
 {
 	int			i;
 	int			j;
@@ -84,7 +83,7 @@ void			ft_create_flist(int count_sharp, int *coord_of_sharp,
 
 	name_tetra = 'A';
 	count_tetra = count_sharp / 4;
-	coord_of_sharp = ft_move_zero_position_all(coord_of_sharp, count_sharp * 2);
+	coord_of_sharp = zero_position_all(coord_of_sharp, count_sharp * 2);
 	j = 0;
 	while (count_tetra-- > 0 && head)
 	{
